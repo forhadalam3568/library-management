@@ -34,6 +34,7 @@ export default function BookDetailsPage({ params }) {
             <p className="text-gray-700 mb-2"><span className="font-semibold">Author:</span> {book.author}</p>
             <p className="text-gray-700 mb-2"><span className="font-semibold">ISBN:</span> {book.isbn}</p>
             <p className="text-gray-700 mb-4"><span className="font-semibold">Available Quantity:</span> {book.quantity}</p>
+            <p className="text-gray-700 mb-4"><span className="font-semibold">Price:</span> {book.price} TK</p>
             {book.description && (
               <p className="text-gray-600 mb-6">{book.description}</p>
             )}

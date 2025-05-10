@@ -57,6 +57,7 @@ export default function AdminBooksPage() {
                   <p className="text-gray-600 mb-1">Author: {book.author}</p>
                   <p className="text-gray-600 mb-1">ISBN: {book.isbn}</p>
                   <p className="text-gray-600 mb-4">Quantity: {book.quantity}</p>
+                  <p className="text-gray-600 mb-4">Price: {book.price} TK</p>
                   <button
                     onClick={() => handleDelete(book.isbn)}
                     className="mt-auto bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition duration-300"

@@ -24,6 +24,7 @@ export default function DashboardPage() {
               <p className="text-gray-600 mb-1">Author: {book.author}</p>
               <p className="text-gray-600 mb-1">ISBN: {book.isbn}</p>
               <p className="text-gray-600 mb-4">Quantity: {book.quantity}</p>
+              <p className="text-gray-600 mb-4">Price: {book.price} TK</p>
               <Link href={`/dashboard/book/${book.isbn}`} className="block w-full bg-green-600 text-white text-center p-3 rounded-lg hover:bg-green-700 transition duration-300">
                 Read The Book
               </Link>

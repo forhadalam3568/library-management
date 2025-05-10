@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 
 export default function EditBookPage({ params }) {
   const [title, setTitle] = useState("");
+  const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [author, setAuthor] = useState("");
   const [isbn, setIsbn] = useState("");
@@ -17,6 +18,7 @@ export default function EditBookPage({ params }) {
     const book = books.find(b => b.isbn === params.isbn);
     if (book) {
       setTitle(book.title);
+      setPrice(book.price);
       setImage(book.image);
       setAuthor(book.author);
       setIsbn(book.isbn);
@@ -31,7 +33,7 @@ export default function EditBookPage({ params }) {
     const books = JSON.parse(localStorage.getItem("books") || "[]");
     const index = books.findIndex(b => b.isbn === params.isbn);
     if (index !== -1) {
-      books[index] = { title, image, author, isbn, quantity: parseInt(quantity, 10), description, url };
+      books[index] = { title, image, author, isbn, quantity: parseInt(quantity, 10), description, url, price };
       localStorage.setItem("books", JSON.stringify(books));
       router.push("/admin/books");
     }
@@ -46,6 +48,19 @@ export default function EditBookPage({ params }) {
           placeholder="Title"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          required
+        />
+         <textarea
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Description (optional)"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+         <input
+          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
           required
         />
         <input
@@ -77,12 +92,7 @@ export default function EditBookPage({ params }) {
           onChange={(e) => setQuantity(e.target.value)}
           required
         />
-        <textarea
-          className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-          placeholder="Description (optional)"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-        />
+       
         <input
           className="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           placeholder="Book URL (optional)"
